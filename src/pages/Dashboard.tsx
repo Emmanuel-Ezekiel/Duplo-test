@@ -1,20 +1,18 @@
-import React from 'react'
+import React from "react";
 import { Form, Button, Card, Alert, Container } from "react-bootstrap";
+import Menu from "../components/Menu/menu";
+import Profile from "../components/Profile/profile";
+
+import "../styles/dashboard.scss";
 const Dashboard = () => {
   return (
-    <Container
-    className="d-flex flex-column align-items-center justify-content-center w-100"
-    style={{ height: "100vh" }}
-  >
-    <Card className="w-50" style={{ height: "auto" }}>
-      <Card.Body>
-        <h2 className="text-center mb-4">ADMIN BOARD</h2>
-        
-      </Card.Body>
-    </Card>
-    
-  </Container>
-  )
-}
+    <div className="main">
+      <div className="mainContainer">
+        <Menu />
+      </div>
+      <Profile/>
+    </div>
+  );
+};
 
 export default Dashboard;

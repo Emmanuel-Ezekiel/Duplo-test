@@ -12,7 +12,7 @@ import { Container } from "react-bootstrap";
 
 function App() {
   return (
-    <Container className="w-100" style={{ minHeight: "100vh" }}>
+    <div>
       <Router>
         <AuthProvider>
           <Routes>
@@ -28,7 +28,7 @@ function App() {
           </Routes>
         </AuthProvider>
       </Router>
-    </Container>
+    </div>
   );
 }
 
