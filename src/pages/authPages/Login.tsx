@@ -8,7 +8,7 @@ const Login = () => {
   const passwordRef: any = useRef()
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
-  const { login, fetchData} = useAuth()
+  const { login, fetchAdminData} = useAuth()
   const navigate = useNavigate();
 
   
@@ -18,7 +18,7 @@ const Login = () => {
       setError("")
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value)
-      fetchData();
+      fetchAdminData();
       setTimeout( () => {
         navigate("/");
       }, 2000)

@@ -5,9 +5,10 @@ import Admin from "./pages/Admin";
 import Login from "./pages/authPages/Login";
 import PrivateRoutes from "./routes/privateRoutes";
 import SignUp from "./pages/authPages/SignUp";
-import { Container } from "react-bootstrap";
 import { AuthProvider } from "./contexts/AuthContext";
+import Permission from "./components/permissionDenied";
 import "./styles/App.scss";
+import { Container } from "react-bootstrap";
 
 function App() {
   return (
@@ -15,12 +16,16 @@ function App() {
       <Router>
         <AuthProvider>
           <Routes>
-            <Route element={<PrivateRoutes />}>
+
+            <Route path='/' element={<PrivateRoutes />}>
               <Route element={<Admin />} path="/" />
-              <Route element={<Dashboard />} path="/dashboard" />
             </Route>
+
             <Route element={<Login />} path="/login" />
             <Route element={<SignUp />} path="/signup" />
+            
+            <Route element={<Dashboard />} path="/dashboard" />
+            <Route element={<Permission />} path="/denied" />
           </Routes>
         </AuthProvider>
       </Router>

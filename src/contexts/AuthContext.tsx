@@ -18,9 +18,11 @@ import { collection, getDocs } from "firebase/firestore";
 // Define the type for the authentication context
 type AuthContextProps = {
   currentUser: any;
+  users: any;
+  userId: any;
   admin: any;
   login: (email: string, password: string) => any;
-  fetchData : () => any;
+  fetchAdminData: () => any;
   signup: (email: string, password: string) => any;
   logout: () => any;
 };
@@ -29,8 +31,10 @@ type AuthContextProps = {
 const authContextDefaultValues: AuthContextProps = {
   currentUser: null,
   admin: null,
+  userId: null,
+  users: null,
   login: () => {},
-  fetchData : () => {},
+  fetchAdminData: () => {},
   signup: () => {},
   logout: () => {},
 };
@@ -55,7 +59,12 @@ type AuthProviderProps = {
 export function AuthProvider({ children }: AuthProviderProps) {
   const [currentUser, setCurrentUser] = useState<any>(null);
   const [admin, setAdmin] = useState<any>(null);
+  const [userId, setUserId] = useState<any>(null);
+  const [users, setUsers] = useState<any>(null);
   const navigate = useNavigate();
+
+  const usersData: any = [];
+  const usersID: any = [];
 
   // Function to sign up a user
   const signup = (email: string, password: string) => {
@@ -87,18 +96,30 @@ export function AuthProvider({ children }: AuthProviderProps) {
         navigate("/login");
       })
       .catch((error) => console.log(error));
-  } 
-  
- const fetchData = async () => {
+  }
+
+  const fetchAdminData = async () => {
     const querySnapshot = await getDocs(collection(firestore, "Admin"));
     querySnapshot.forEach((doc) => {
       console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-        setAdmin(JSON.stringify(doc.data()));
+      setAdmin(JSON.stringify(doc.data()));
     });
   };
 
+  const fetchUsersData = async () => {
+    const querySnapshot = await getDocs(collection(firestore, "users"));
+    querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
+      usersData.push(JSON.stringify(doc.data()));
+      usersID.push(JSON.stringify(doc.id));
+    });
+    setUsers(usersData);
+    setUserId(usersID);
+  };
+
   useEffect(() => {
-    fetchData();
+    fetchAdminData();
+    fetchUsersData();
   }, []);
 
   // Effect hook to listen for changes in the authentication state
@@ -121,10 +142,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const value = {
     currentUser,
     admin,
-    fetchData,
+    users,
+    fetchAdminData,
     login,
     signup,
     logout,
+    userId
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
