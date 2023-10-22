@@ -8,7 +8,7 @@ const Login = () => {
   const passwordRef: any = useRef()
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
-  const { login } = useAuth()
+  const { login, fetchData} = useAuth()
   const navigate = useNavigate();
 
   
@@ -18,13 +18,18 @@ const Login = () => {
       setError("")
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value)
-      navigate("/");
+      fetchData();
+      setTimeout( () => {
+        navigate("/");
+      }, 2000)
     } catch {
       setError("Failed to log in")
     }
 
     setLoading(false)
   }
+
+
   return (
     <Container className="d-flex flex-column align-items-center justify-content-center w-100" style={{height: '100vh'}}>
       <Card className="w-50" style={{ height: '300px' }} >
