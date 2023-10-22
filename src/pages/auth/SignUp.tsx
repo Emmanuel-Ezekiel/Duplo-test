@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
-import { Form, Button, Card, Alert } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Form, Button, Card, Alert, Container } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
 
 const SignUp = () => {
   const emailRef: any = useRef();
@@ -8,16 +9,36 @@ const SignUp = () => {
   const passwordConfirmRef: any = useRef();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const { signup, currentUser } = useAuth();
+  const navigate = useNavigate();
 
-  async function handleSubmit(e: any) {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      return setError("Passwords do not match");
+    }
+    try {
+      setError("");
+      setLoading(true);
+      console.log(emailRef.current.value, passwordRef.current.value);
+      await signup(emailRef.current.value, passwordRef.current.value);
+      navigate("/login");
+    } catch {
+      setError("Failed to create an account");
+    }
+
+    setLoading(false);
   }
 
   return (
-    <>
-      <Card className="w-25">
+    <Container
+      className="d-flex flex-column align-items-center justify-content-center w-100"
+      style={{ height: "100vh" }}
+    >
+      <Card className="w-50">
         <Card.Body>
           <h2 className="text-center mb-4">Sign Up</h2>
+          {JSON.stringify(currentUser.email)}
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
@@ -41,7 +62,7 @@ const SignUp = () => {
       <div className="w-100 text-center mt-2">
         Already have an account? <Link to="/login">Log In</Link>
       </div>
-    </>
+    </Container>
   );
 };
 
