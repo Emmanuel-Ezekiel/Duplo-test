@@ -1,8 +1,9 @@
-import React from "react";
 import { Card, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 
 const PrivateRoutes: any = () => {
+  const { fetchAdminData } = useAuth();
   return (
     <Container
       className="d-flex flex-column align-items-center justify-content-center w-100"
@@ -16,7 +17,10 @@ const PrivateRoutes: any = () => {
             You dont have Permission to access the dashboard!!
           </h4>
           <div className="w-100 text-center mt-5">
-            Go back <Link to="/login">login</Link>
+            Go back{" "}
+            <Link to="/login" onClick={() => fetchAdminData()}>
+              login
+            </Link>
           </div>
         </Card.Body>
       </Card>

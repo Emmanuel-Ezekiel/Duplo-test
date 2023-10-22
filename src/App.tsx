@@ -16,14 +16,13 @@ function App() {
       <Router>
         <AuthProvider>
           <Routes>
-
-            <Route path='/' element={<PrivateRoutes />}>
+            <Route path="/" element={<PrivateRoutes />}>
               <Route element={<Admin />} path="/" />
             </Route>
 
             <Route element={<Login />} path="/login" />
             <Route element={<SignUp />} path="/signup" />
-            
+
             <Route element={<Dashboard />} path="/dashboard" />
             <Route element={<Permission />} path="/denied" />
           </Routes>
