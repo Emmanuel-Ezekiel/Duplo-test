@@ -88,8 +88,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
       });
   };
 
-  // Function to log out a user
 
+  // Function to get all AdminData
   const fetchAdminData = async () => {
     const querySnapshot = await getDocs(collection(firestore, "Admin"));
     querySnapshot.forEach((doc) => {
@@ -98,6 +98,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     });
   };
 
+    // Function to get all UsersData
   const fetchUsersData = async () => {
     const querySnapshot = await getDocs(collection(firestore, "users"));
     querySnapshot.forEach((doc) => {
@@ -109,6 +110,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     setUserId(usersID);
   };
 
+    // Function to log out a user
   function logout() {
     signOut(auth)
       .then(() => {
