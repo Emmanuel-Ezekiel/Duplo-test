@@ -1,8 +1,10 @@
 import { menu } from "../../utils/data";
-import { Logo } from "../../assets";
+import { Logo, ElementGray } from "../../assets";
+import { useAuth } from "../../contexts/AuthContext";
 import "./menu.scss";
 
 const Menu = () => {
+  const { logout } = useAuth();
   return (
     <div className="mainContainer">
       <div className="logoContainer">
@@ -26,6 +28,18 @@ const Menu = () => {
           ))}
         </div>
       ))}
+
+      <div className="logoContainer">
+        <div
+          className={`listItem 
+          }`}
+        >
+          {ElementGray()}
+          <span className="listItemTitle" onClick={() => logout()}>
+            Log Out
+          </span>
+        </div>
+      </div>
     </div>
   );
 };

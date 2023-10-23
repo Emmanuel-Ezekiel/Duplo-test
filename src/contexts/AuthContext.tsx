@@ -89,14 +89,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
   };
 
   // Function to log out a user
-  function logout() {
-    signOut(auth)
-      .then(() => {
-        console.log("sign out successful");
-        navigate("/login");
-      })
-      .catch((error) => console.log(error));
-  }
 
   const fetchAdminData = async () => {
     const querySnapshot = await getDocs(collection(firestore, "Admin"));
@@ -116,6 +108,16 @@ export function AuthProvider({ children }: AuthProviderProps) {
     setUsers(usersData);
     setUserId(usersID);
   };
+
+  function logout() {
+    signOut(auth)
+      .then(() => {
+        fetchAdminData();
+        console.log("sign out successful");
+        navigate("/login");
+      })
+      .catch((error) => console.log(error));
+  }
 
   useEffect(() => {
     fetchAdminData();
@@ -147,7 +149,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     login,
     signup,
     logout,
-    userId
+    userId,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
