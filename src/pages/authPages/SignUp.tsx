@@ -54,7 +54,6 @@ const SignUp = () => {
       <Card className="w-50">
         <Card.Body>
           <h2 className="text-center mb-4">Sign Up</h2>
-          {admin && admin}
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
