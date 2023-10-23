@@ -1,4 +1,4 @@
-import { Message, Calendar, Job, Profile, Element,   Monitor , Share, Report, Settings, ElementGray, green, red, orange } from "../assets";
+import { Message, Calendar, Job, Profile, Element,   Monitor , Share, Report, green, red, orange } from "../assets";
 
 export const menu = [
     {

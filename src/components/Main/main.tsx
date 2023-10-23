@@ -6,6 +6,7 @@ import Widget from "./components/widget/widget";
 import { IoIosArrowDown } from "react-icons/io";
 import Activity from "./components/activity/activity";
 import Meetings from "./components/meetings/meetings";
+import BarChart from "./components/charts/Bar";
 
 const Main = () => {
   return (
@@ -26,7 +27,41 @@ const Main = () => {
           <Widget item={items} key={items.id} />
         ))}
       </div>
-      <div className="staticsContainer"></div>
+      <div className="staticsContainer">
+        <div className="headers">
+          <h1>Statistics of active Applications</h1>
+
+          <div className="switch-container">
+            <div className="switchBox">
+              <div className="switch">
+                <input type="checkbox" id="toggle" />
+                <label className="slider" htmlFor="toggle"></label>
+              </div>
+              <span>Applications</span>
+            </div>
+            <div className="switchBox">
+              <div className="switch2">
+                <input type="checkbox" id="toggle" />
+                <label className="slider" htmlFor="toggle"></label>
+              </div>
+              <span>Shortlisted</span>
+            </div>
+            <div className="switchBox">
+              <div className="switch3">
+                <input type="checkbox" id="toggle" />
+                <label className="slider" htmlFor="toggle"></label>
+              </div>
+              <span>Rejected</span>
+            </div>
+          </div>
+          <button>
+            {" "}
+            Month
+            <IoIosArrowDown />
+          </button>
+        </div>
+        <BarChart />
+      </div>
       <div className="buttomContainer">
         <div className="activity">
           <div className="headers">
