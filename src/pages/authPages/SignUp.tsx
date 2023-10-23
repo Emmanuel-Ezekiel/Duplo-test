@@ -8,6 +8,7 @@ const SignUp = () => {
   const emailRef: any = useRef();
   const passwordRef: any = useRef();
   const passwordConfirmRef: any = useRef();
+  const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const { signup } = useAuth();
@@ -31,9 +32,12 @@ const SignUp = () => {
 
       // Attempt to register the user with the provided email and password.
       await signup(email, password);
+      setMessage("Sign Up Successfull");
 
       // If registration is successful, navigate the user to the login page.
-      navigate("/login");
+      setTimeout(() => {
+        navigate("/login");
+      }, 2000);
     } catch (error) {
       setError("Failed to create an account"); // Handle registration failure with an error message.
     } finally {
@@ -55,6 +59,7 @@ const SignUp = () => {
         <Card.Body>
           <h2 className="text-center mb-4">Sign Up</h2>
           {error && <Alert variant="danger">{error}</Alert>}
+          {message && <Alert variant="success">{message}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
