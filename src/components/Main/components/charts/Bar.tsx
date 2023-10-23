@@ -3,10 +3,6 @@ import Chart from "react-apexcharts";
 
 const App: React.FC = () => {
   const options = {
-    // stroke: {
-    //   colors: ["transparent"],
-    //   width: 5
-    // },
     chart: {
       id: "basic-bar",
       stacked: true,
