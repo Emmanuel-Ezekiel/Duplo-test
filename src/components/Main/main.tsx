@@ -1,8 +1,11 @@
 import React from "react";
 import "./main.scss";
 import { Search } from "../../assets";
-import { widgetData } from "../../utils/data";
+import { widgetData, activityData, meetingsData } from "../../utils/data";
 import Widget from "./components/widget/widget";
+import { IoIosArrowDown } from "react-icons/io";
+import Activity from "./components/activity/activity";
+import Meetings from "./components/meetings/meetings";
 
 const Main = () => {
   return (
@@ -20,11 +23,38 @@ const Main = () => {
 
       <div className="widgetContainer">
         {widgetData.map((items) => (
-          <Widget item={items} key={items.id}/>
+          <Widget item={items} key={items.id} />
         ))}
       </div>
       <div className="staticsContainer"></div>
-      <div className="activityContainer"></div>
+      <div className="buttomContainer">
+        <div className="activity">
+          <div className="headers">
+            <h1>Activity Feed</h1>
+            <button>
+              {" "}
+              All Activity
+              <IoIosArrowDown />
+            </button>
+          </div>
+          {activityData.map((items) => (
+            <Activity item={items} key={items.id} />
+          ))}
+        </div>
+        <div className="meetings">
+          <div className="headers">
+            <h1>Meetings</h1>
+            <button>
+              {" "}
+              Create new
+              <IoIosArrowDown />
+            </button>
+          </div>
+          {meetingsData.map((items) => (
+            <Meetings item={items} key={items.id} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

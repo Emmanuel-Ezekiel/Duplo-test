@@ -142,3 +142,57 @@ export const menu = [
       icon: red()
     },
   ]
+
+  export const activityData= [
+    {
+      id: 1,
+      note: "<span>Marvin McKinney</span> applied for the job <span>Product Designer</span>",
+      time: "10 mins ago",
+      icon: "/svg/image.svg",
+      color: "#377DFF",
+      status: "Applying",
+    },
+    {
+      id: 2,
+      note: "<span>Jone Copper</span> Created new Account as a <span>Job Hunt</span>",
+      time: "4 hours ago",
+      icon: "/svg/image2.svg",
+      color: "#38CB89",
+      status: "Sign Up",
+    },
+    {
+      id: 3,
+      note: "<span>Jenny Wilson</span> applied for the job <span>Frontend Engineer</span>",
+      time: "10 mins ago",
+      icon: "/svg/image3.svg",
+      color: "#377DFF",
+      status: "Applying",
+    },
+   
+  ]
+
+  export const meetingsData= [
+    {
+      id: 1,
+      task: "Interview",
+      time: "9:00am - 11:30am",
+      day: "Mon",
+      date: "10"
+    },
+    {
+      id: 2,
+      task: "Organizational meeting",
+      time: "9:00am - 11:30am",
+      day: "Thu",
+      date: "08"
+    },
+    {
+      id: 3,
+      task: "Meeting with the manager",
+      time: "9:00am - 11:30am",
+      day: "Fri",
+      date: "11"
+    },
+    
+   
+  ]

@@ -11,8 +11,8 @@ const Widget = ({ item }: any) => {
             style={{
               backgroundColor: item.color,
               opacity: 0.5,
-              width: 25,
-              height: 25,
+              width: 20,
+              height: 20,
               borderRadius: "50%",
               display: "flex",
               justifyContent: "center",

@@ -104,12 +104,11 @@
         }
 
         .circle {
-            display: flex;
-            gap: 5px;
-            align-items: center;
+          display: flex;
+          gap: 5px;
+          align-items: center;
         }
       }
-
 
       .donut {
         display: flex;
@@ -120,8 +119,190 @@
     }
   }
 
-  .activityContainer {
-    border: 1px solid;
+  .buttomContainer {
     height: 250px;
+    display: flex;
+    justify-content: space-between;
+
+    .activity {
+      width: 55%;
+      background-color: #fff;
+      border-radius: 10px;
+      height: 100%;
+      padding: 15px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      .headers {
+        width: 100%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h1 {
+          font-size: 24px;
+          font-weight: 600;
+        }
+
+        button {
+          border: 2px solid #efefefc7;
+          width: 120px;
+          height: 100%;
+          border-radius: 16px;
+          background: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
+          font-size: 14px;
+          font-weight: 500;
+        }
+      }
+
+      .content {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        justify-content: space-between;
+
+        .content-box {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          img {
+            border-radius: 50%;
+          }
+
+          .info {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+
+            h2 {
+              font-size: 14px;
+              font-weight: 300;
+              line-height: normal;
+              span {
+                font-size: 16px;
+                font-weight: 700;
+              }
+            }
+
+            span {
+              font-size: 12px;
+              font-weight: 400;
+            }
+          }
+        }
+      }
+    }
+
+    .meetings {
+      width: 40%;
+      height: 100%;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 15px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      .headers {
+        width: 100%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h1 {
+          font-size: 24px;
+          font-weight: 600;
+        }
+
+        button {
+          border: 2px solid #efefefc7;
+          width: 120px;
+          height: 100%;
+          border-radius: 16px;
+          background: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
+          font-size: 14px;
+          font-weight: 500;
+        }
+      }
+
+      .meeting-content {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        justify-content: space-between;
+
+        .box {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+
+          .date {
+            height: 45px;
+            width: 50px;
+            background-color: #fff;
+            border-radius: 6px;
+            box-shadow: 0px 0px 5px 0px rgba(31, 61, 106, 0.14);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h4 {
+              font-size: 14px;
+              font-weight: 600;
+              color: #FFA600;
+            }
+
+            span {
+              font-size: 12px;
+              font-weight: 500;
+            }
+          }
+
+          .schedule {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 100%;
+
+            h2 {
+              font-size: 16px;
+              font-weight: 600;
+            }
+
+            span {
+              font-size: 14px;
+              font-weight: 300;
+              color: #8f8f8f;
+            }
+          }
+        }
+
+        .dot {
+          height: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 25px;
+          border-radius: 4px;
+          background-color: #efefefc7;
+        }
+      }
+    }
   }
 }
