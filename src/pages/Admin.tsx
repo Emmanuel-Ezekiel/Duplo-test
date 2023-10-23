@@ -46,19 +46,39 @@ const Admin = () => {
           )}
 
           <h3 className="text-center mb-5 mt-3">List of Users</h3>
-          {joinedObj?.map((user: any) => (
-            <li key={user?.email} className="d-flex align-items-center gap-3">
-              {user?.email}{" "}
-              <Button
-                onClick={() => handleAssignRole(user?.id, "hr", user?.email)}
-                className="w-4 mt-3"
-                type="submit"
-                style={{ height: "40px" }}
-              >
-                Assign HR Role
-              </Button>{" "}
-            </li>
-          ))}
+
+          {joinedObj.length === 0 ? (
+            <>
+              <div className="w-100 text-center mt-2">
+                List is Empty, Go Back{" "}
+                <Link to="/login" onClick={() => fetchAdminData()}>
+                  Log In
+                </Link>
+              </div>
+            </>
+          ) : (
+            <>
+              {" "}
+              {joinedObj?.map((user: any) => (
+                <li
+                  key={user?.email}
+                  className="d-flex align-items-center gap-3"
+                >
+                  {user?.email}{" "}
+                  <Button
+                    onClick={() =>
+                      handleAssignRole(user?.id, "hr", user?.email)
+                    }
+                    className="w-4 mt-3"
+                    type="submit"
+                    style={{ height: "40px" }}
+                  >
+                    Assign HR Role
+                  </Button>{" "}
+                </li>
+              ))}
+            </>
+          )}
         </Card.Body>
       </Card>
       {email && (
