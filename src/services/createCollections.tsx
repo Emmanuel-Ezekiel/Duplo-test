@@ -7,6 +7,7 @@ import {
 } from "firebase/firestore";
 import { firestore } from "../utils/firebase";
 
+//this function is use for creating userCollections
 const createUserCollection = async (email: string, role?: any) => {
   try {
     const docRef: any = await addDoc(collection(firestore, "users"), {
@@ -24,6 +25,7 @@ const createAdminCollection = async (email: string) => {
     const adminCollectionRef = collection(firestore, "Admin");
     const adminQuerySnapshot = await getDocs(adminCollectionRef);
 
+    // check if the collect is empty so as the first user will be Admin automatically,
     if (adminQuerySnapshot.size === 0) {
       const docRef = await addDoc(adminCollectionRef, {
         email: email,
@@ -31,13 +33,14 @@ const createAdminCollection = async (email: string) => {
       });
       console.log("Document written with ID: ", docRef.id);
     } else {
-      createUserCollection(email, "");
+      createUserCollection(email, ""); // if Admin is available, add user to usersCollection
     }
   } catch (error) {
     console.error("Error adding document: ", error);
   }
 };
 
+// This function updates users collection when role is asssigned and use ID to track the specific user
 const updateUserRole = async (userId: string, role: string) => {
   try {
     const docRef = doc(firestore, "users", userId);

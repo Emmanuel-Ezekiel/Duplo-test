@@ -1,0 +1,127 @@
+.main-container {
+  width: 63%;
+  background-color: #f4f4f4d5;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  //   justify-content: space-between;
+  padding: 25px 25px;
+
+  .header {
+    // border: 1px solid;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    .head {
+      display: flex;
+      flex-direction: column;
+
+      h1 {
+        font-size: 26px;
+        font-weight: 700;
+      }
+
+      p {
+        font-size: 16px;
+        font-weight: 600;
+        color: #8f8f8f;
+      }
+    }
+
+    .search {
+      width: 420px;
+      height: 50px;
+      border-radius: 14px;
+      background-color: #fff;
+      display: flex;
+      justify-content: space-between;
+
+      input {
+        width: 90%;
+        border: none;
+        padding-left: 10px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+
+        &::placeholder {
+          color: #8f8f8f;
+          font-size: 16px;
+          font-weight: 400;
+        }
+      }
+
+      button {
+        width: 10%;
+        border: none;
+        background-color: #377dff;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+    }
+  }
+
+  .staticsContainer {
+    border: 1px solid;
+    height: 400px;
+  }
+  .widgetContainer {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .widgetBox {
+      height: 100%;
+      width: 30%;
+      border-radius: 10px;
+      background-color: #fff;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+
+      .right {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 100%;
+
+        h2 {
+          font-size: 24px;
+          font-weight: 600;
+          color: #000;
+        }
+        h3 {
+          font-size: 16px;
+          font-weight: 400;
+          color: #8f8f8f;
+        }
+
+        span {
+          font-size: 14px;
+          font-weight: 300;
+        }
+
+        .circle {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+      }
+
+
+      .donut {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px !important;
+      }
+    }
+  }
+
+  .activityContainer {
+    border: 1px solid;
+    height: 250px;
+  }
+}

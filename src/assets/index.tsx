@@ -11,3 +11,7 @@ export {  Report  } from "./svg/svg";
 export {  Settings  } from "./svg/svg";
 export {  notification  } from "./svg/svg";
 export {  help } from "./svg/svg";
+export {  Search } from "./svg/svg";
+export {  green } from "./svg/svg";
+export {  red } from "./svg/svg";
+export {  orange } from "./svg/svg";

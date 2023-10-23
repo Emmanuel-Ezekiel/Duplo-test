@@ -1,4 +1,4 @@
-import { Message, Calendar, Job, Profile, Element,   Monitor , Share, Report, Settings, ElementGray } from "../assets";
+import { Message, Calendar, Job, Profile, Element,   Monitor , Share, Report, Settings, ElementGray, green, red, orange } from "../assets";
 
 export const menu = [
     {
@@ -96,25 +96,49 @@ export const menu = [
       id: 1,
       name: "Product Designer",
       note: "Spotify, Singapore - 6 hours ago",
-      icon: '/svg/messageIcon.svg'
+      icon: '/svg/spotify.svg'
     },
     {
       id: 2,
       name: "IOS Developer",
       note: "San Francisco, CA - 2 Days ago",
-      icon: '/svg/messageIcon2.svg'
+      icon: '/svg/slack.svg'
     },
     {
       id: 3,
       name: "Brand Strategist",
       note: "New york, US - 2 Days ago",
-      icon: '/svg/messageIcon2.svg'
+      icon: '/svg/adobe.svg'
     },
     {
       id: 4,
       name: "Jr. Frontend Engineer",
       note: "Spotify, Singapore - 2 Days ago",
-      icon: '/svg/messageIcon2.svg'
+      icon: '/svg/kayako.svg'
     },
     
+  ]
+
+  export const widgetData= [
+    {
+      id: 1,
+      name: "Total Applications",
+      total: 5672,
+      color: "#38CB89",
+      icon: green()
+    },
+    {
+      id: 2,
+      name: "Shortlisted Candidates",
+      total: 3045,
+      color: "#FFA600",
+      icon: orange()
+    },
+    {
+      id: 3,
+      name: "Rejected Candidates",
+      total: 1055,
+      color: "#FF5630",
+      icon: red()
+    },
   ]

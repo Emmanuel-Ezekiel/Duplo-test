@@ -4,7 +4,7 @@ import "./menu.scss";
 
 const Menu = () => {
   return (
-    <div className="menu">
+    <div className="mainContainer">
       <div className="logoContainer">
         {" "}
         <div className="logo"> {Logo()} </div> <h1>Human R.</h1>
